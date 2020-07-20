@@ -20,6 +20,16 @@ class ListNode:
         return s
 
 
+def make_listNode(l: List):
+    ln = ListNode()
+    cn = ln
+    for i in l:
+        cn.next = ListNode(i)
+        cn = cn.next
+
+    return ln.next
+
+
 class Solution:
 
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
@@ -50,16 +60,6 @@ class Solution:
             cn.next = None
 
         return rl.next
-
-
-def make_listNode(l: List):
-    ln = ListNode()
-    cn = ln
-    for i in l:
-        cn.next = ListNode(i)
-        cn = cn.next
-
-    return ln.next
 
 
 print(
