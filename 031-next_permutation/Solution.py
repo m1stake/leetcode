@@ -3,19 +3,11 @@ from typing import List
 
 class Solution:
 
-    """
-    0-9： {
-        highest_idx
-        ## [idx0, idx1, idx2] sorted
-    }
-    """
-
     def nextPermutation(self, nums: List[int]) -> None:
         """
         Do not return anything, modify nums in-place instead.
         """
         # 找到n位之后比n位大的数，置换
-        # TODO 去掉这个map
         sorted_highest_idx_map = []
 
         for i in range(len(nums)):
