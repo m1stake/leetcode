@@ -19,7 +19,7 @@ class Solution:
         for layer_no in range(len(matrix) // 2):
 
             _x = _y = layer_no
-            l = len(matrix) - layer_no * 2 - 1
+            layer_len = len(matrix) - layer_no * 2
 
             # 逐个圈交换
             for circle_no in range(len(matrix) - layer_no * 2 - 1):
@@ -29,13 +29,13 @@ class Solution:
 
                 # 0 -> 1
                 x1 = x0 + circle_no
-                y1 = y0 + l - circle_no
+                y1 = y0 + layer_len - 1 - circle_no
                 t = matrix[x1][y1]
                 matrix[x1][y1] = matrix[x0][y0]
                 matrix[x0][y0] = t
 
                 # 1 -> 2
-                x2 = x1 + l - circle_no
+                x2 = x1 + layer_len - 1 - circle_no
                 y2 = y1 - circle_no
                 t = matrix[x2][y2]
                 matrix[x2][y2] = matrix[x0][y0]
@@ -43,7 +43,7 @@ class Solution:
 
                 # 2-> 3, 3 -> 0
                 x3 = x2 - circle_no
-                y3 = y2 - l + circle_no
+                y3 = y2 - layer_len - 1 + circle_no
                 t = matrix[x3][y3]
                 matrix[x3][y3] = matrix[x0][y0]
                 matrix[x0][y0] = t
