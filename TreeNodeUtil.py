@@ -29,19 +29,19 @@ def make_tree_node(tree_desc):
         return None
 
 
-def left_first_tree_travel(self, node):
+def left_first_tree_travel(node):
 
     if node is not None:
         if node.left is not None or node.right is not None:
-            return node.val, self.left_first(node.left), self.left_first(node.right)
+            return node.val, left_first_tree_travel(node.left), left_first_tree_travel(node.right)
         else:
             return node.val
 
 
-def right_first_travel(self, node):
+def right_first_travel(node):
     if node is not None:
         if node.left is not None or node.right is not None:
-            return node.val, self.right_first(node.right), self.right_first(node.left)
+            return node.val, left_first_tree_travel(node.right), left_first_tree_travel(node.left)
         else:
             return node.val
 
