@@ -15,15 +15,20 @@ class Solution:
     def left_first(self, node):
 
         if node is not None:
-            return node.val, self.left_first(node.left), self.left_first(node.right)
+            if node.left is not None or node.right is not None:
+                return node.val, self.left_first(node.left), self.left_first(node.right)
+            else:
+                return node.val
 
     def right_first(self, node):
         if node is not None:
-            return node.val, self.right_first(node.right), self.right_first(node.left)
+            if node.left is not None or node.right is not None:
+                return node.val, self.right_first(node.right), self.right_first(node.left)
+            else:
+                return node.val
 
 
 print(
     Solution().isSymmetric(make_tree_node((1, (2, 3, 4), (2, 4, 3)))),
     Solution().isSymmetric(make_tree_node((1, (2, 2, None), (2, 2, None)))),
-
 )
